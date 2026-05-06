@@ -37,6 +37,20 @@
                     <div class="md:col-span-2 text-black">{{ $entity->entitySubtype?->name ?? '-' }}</div>
                 </div>
                 <div class="grid grid-cols-1 gap-2 p-4 md:grid-cols-3">
+                    <div class="font-medium text-gray-700">Статус</div>
+                    <div class="md:col-span-2 text-black">
+                        @if ($entity->status === 'draft')
+                            Чернова
+                        @elseif ($entity->status === 'published')
+                            Публикуван
+                        @elseif ($entity->status === 'hidden')
+                            Скрит
+                        @else
+                            {{ $entity->status ?: '-' }}
+                        @endif
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 gap-2 p-4 md:grid-cols-3">
                     <div class="font-medium text-gray-700">Категоризация</div>
                     <div class="md:col-span-2 text-black">{{ $entity->classification ?: '-' }}</div>
                 </div>

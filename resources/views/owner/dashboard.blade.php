@@ -3,57 +3,66 @@
 @section('title', __('Owner panel'))
 
 @section('content')
-    <div class="mx-auto max-w-5xl space-y-6 bg-white">
+    <div class="relative left-1/2 w-[min(96vw,1280px)] -translate-x-1/2 space-y-6 bg-white px-2">
         @if (session('success'))
             <div class="rounded-lg border border-gray-400 p-4 text-sm text-black">
                 {{ session('success') }}
             </div>
         @endif
 
+        <div class="rounded-lg border border-gray-300 p-5">
+            <div class="flex flex-wrap items-start justify-between gap-3">
+                <div>
+                    <h1 class="text-2xl font-semibold text-black">Работен панел</h1>
+                    <p class="mt-1 text-sm text-gray-700">Управлявайте вашите туристически обекти от едно място.</p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <a href="{{ route('home') }}" class="rounded border border-gray-400 px-3 py-2 text-sm text-black hover:bg-gray-100">
+                        Към сайта
+                    </a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="rounded border border-gray-400 px-3 py-2 text-sm text-black hover:bg-gray-100">
+                            Изход
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                <div class="rounded border border-gray-300 p-3">
+                    <p class="text-xs text-gray-600">Всички обекти</p>
+                    <p class="mt-1 text-xl font-semibold text-black">{{ $entities->count() }}</p>
+                </div>
+                <div class="rounded border border-gray-300 p-3">
+                    <p class="text-xs text-gray-600">Чернови</p>
+                    <p class="mt-1 text-xl font-semibold text-black">{{ $entities->where('status', 'draft')->count() }}</p>
+                </div>
+                <div class="rounded border border-gray-300 p-3">
+                    <p class="text-xs text-gray-600">Публикувани</p>
+                    <p class="mt-1 text-xl font-semibold text-black">{{ $entities->where('status', 'published')->count() }}</p>
+                </div>
+                <div class="rounded border border-gray-300 p-3">
+                    <p class="text-xs text-gray-600">Скрити</p>
+                    <p class="mt-1 text-xl font-semibold text-black">{{ $entities->where('status', 'hidden')->count() }}</p>
+                </div>
+            </div>
+        </div>
+
         <div class="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-gray-300 p-4">
-            <h1 class="text-2xl font-semibold text-black">Owner panel</h1>
-            <div class="flex items-center gap-2">
-                <a href="{{ route('home') }}" class="rounded border border-gray-400 px-3 py-2 text-sm text-black hover:bg-gray-100">
-                    Back to home
+            <div class="text-sm text-gray-700">Бързо добавяне по тип:</div>
+            <div class="flex flex-wrap gap-2">
+                <a href="{{ route('owner.entities.create', ['type' => 'accommodation']) }}" class="rounded border border-gray-400 px-3 py-2 text-sm text-black hover:bg-gray-100">
+                    Място за настаняване
                 </a>
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <button type="submit" class="rounded border border-gray-400 px-3 py-2 text-sm text-black hover:bg-gray-100">
-                        Logout
-                    </button>
-                </form>
+                <a href="{{ route('owner.entities.create', ['type' => 'food_place']) }}" class="rounded border border-gray-400 px-3 py-2 text-sm text-black hover:bg-gray-100">
+                    Място за хранене
+                </a>
+                <a href="{{ route('owner.entities.create', ['type' => 'attraction']) }}" class="rounded border border-gray-400 px-3 py-2 text-sm text-black hover:bg-gray-100">
+                    Атракция
+                </a>
             </div>
         </div>
-
-        <div class="rounded-lg border border-gray-300 p-4">
-            <p class="text-sm text-gray-700">Добавяне и управление на ваши туристически обекти.</p>
-        </div>
-
-        <section class="space-y-3">
-            <h2 class="text-lg font-semibold text-black">Добави нов обект</h2>
-            <div class="grid gap-4 md:grid-cols-3">
-                <div class="rounded-lg border border-gray-300 p-4">
-                    <h3 class="font-medium text-black">Място за настаняване</h3>
-                    <a href="{{ route('owner.entities.create', ['type' => 'accommodation']) }}" class="mt-3 inline-block rounded border border-gray-400 px-3 py-2 text-sm text-black hover:bg-gray-100">
-                        Добави
-                    </a>
-                </div>
-
-                <div class="rounded-lg border border-gray-300 p-4">
-                    <h3 class="font-medium text-black">Място за хранене</h3>
-                    <a href="{{ route('owner.entities.create', ['type' => 'food_place']) }}" class="mt-3 inline-block rounded border border-gray-400 px-3 py-2 text-sm text-black hover:bg-gray-100">
-                        Добави
-                    </a>
-                </div>
-
-                <div class="rounded-lg border border-gray-300 p-4">
-                    <h3 class="font-medium text-black">Атракция</h3>
-                    <a href="{{ route('owner.entities.create', ['type' => 'attraction']) }}" class="mt-3 inline-block rounded border border-gray-400 px-3 py-2 text-sm text-black hover:bg-gray-100">
-                        Добави
-                    </a>
-                </div>
-            </div>
-        </section>
 
         <section class="space-y-3">
             <h2 class="text-lg font-semibold text-black">Моите обекти</h2>
@@ -69,6 +78,7 @@
                                 <th class="px-3 py-2 font-medium">Име</th>
                                 <th class="px-3 py-2 font-medium">Тип</th>
                                 <th class="px-3 py-2 font-medium">Подтип</th>
+                                <th class="px-3 py-2 font-medium">Статус</th>
                                 <th class="px-3 py-2 font-medium">Категоризация</th>
                                 <th class="px-3 py-2 font-medium">Населено място</th>
                                 <th class="px-3 py-2 font-medium">Телефон</th>
@@ -82,6 +92,17 @@
                                     <td class="px-3 py-2">{{ $entity->name }}</td>
                                     <td class="px-3 py-2">{{ $entity->entityType?->name ?? '-' }}</td>
                                     <td class="px-3 py-2">{{ $entity->entitySubtype?->name ?? '-' }}</td>
+                                    <td class="px-3 py-2">
+                                        @if ($entity->status === 'draft')
+                                            Чернова
+                                        @elseif ($entity->status === 'published')
+                                            Публикуван
+                                        @elseif ($entity->status === 'hidden')
+                                            Скрит
+                                        @else
+                                            {{ $entity->status ?: '-' }}
+                                        @endif
+                                    </td>
                                     <td class="px-3 py-2">{{ $entity->classification ?: '-' }}</td>
                                     <td class="px-3 py-2">{{ $entity->place?->name ?? '-' }}</td>
                                     <td class="px-3 py-2">{{ $entity->phone ?: '-' }}</td>

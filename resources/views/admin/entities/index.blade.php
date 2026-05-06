@@ -75,6 +75,7 @@
                         <th class="px-3 py-2 font-medium">Име</th>
                         <th class="px-3 py-2 font-medium">Тип</th>
                         <th class="px-3 py-2 font-medium">Подтип</th>
+                        <th class="px-3 py-2 font-medium">Статус</th>
                         <th class="px-3 py-2 font-medium">Категоризация</th>
                         <th class="px-3 py-2 font-medium">Населено място</th>
                         <th class="px-3 py-2 font-medium">Собственик</th>
@@ -87,6 +88,17 @@
                             <td class="px-3 py-2">{{ $entity->name }}</td>
                             <td class="px-3 py-2">{{ $entity->entityType?->name ?? '-' }}</td>
                             <td class="px-3 py-2">{{ $entity->entitySubtype?->name ?? '-' }}</td>
+                            <td class="px-3 py-2">
+                                @if ($entity->status === 'draft')
+                                    Чернова
+                                @elseif ($entity->status === 'published')
+                                    Публикуван
+                                @elseif ($entity->status === 'hidden')
+                                    Скрит
+                                @else
+                                    {{ $entity->status ?: '-' }}
+                                @endif
+                            </td>
                             <td class="px-3 py-2">{{ $entity->classification ?: '-' }}</td>
                             <td class="px-3 py-2">{{ $entity->place?->name ?? '-' }}</td>
                             <td class="px-3 py-2">
@@ -110,7 +122,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="7" class="px-3 py-4 text-center text-gray-700">Няма намерени обекти.</td>
+                            <td colspan="8" class="px-3 py-4 text-center text-gray-700">Няма намерени обекти.</td>
                         </tr>
                     @endforelse
                 </tbody>

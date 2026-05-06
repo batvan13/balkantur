@@ -7,6 +7,19 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Entity extends Model
 {
+    public const STATUS_DRAFT = 'draft';
+
+    public const STATUS_PUBLISHED = 'published';
+
+    public const STATUS_HIDDEN = 'hidden';
+
+    /** @var list<string> */
+    public const STATUSES = [
+        self::STATUS_DRAFT,
+        self::STATUS_PUBLISHED,
+        self::STATUS_HIDDEN,
+    ];
+
     protected $fillable = [
         'user_id',
         'entity_type_id',
@@ -19,6 +32,7 @@ class Entity extends Model
         'email',
         'website',
         'classification',
+        'status',
     ];
 
     public function user(): BelongsTo
