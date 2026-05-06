@@ -30,6 +30,7 @@ class EntityController extends Controller
         $validated = $request->validate([
             'type' => ['nullable', 'integer', 'exists:entity_types,id'],
             'subtype' => ['nullable', 'integer', 'exists:entity_subtypes,id'],
+            'status' => ['nullable', Rule::in(Entity::STATUSES)],
             'place' => ['nullable', 'string', 'max:255'],
             'owner' => ['nullable', 'string', 'max:255'],
         ]);
@@ -45,6 +46,10 @@ class EntityController extends Controller
 
         if (! empty($validated['subtype'])) {
             $query->where('entity_subtype_id', $validated['subtype']);
+        }
+
+        if (! empty($validated['status'])) {
+            $query->where('status', $validated['status']);
         }
 
         $placeText = trim((string) ($validated['place'] ?? ''));
@@ -181,6 +186,7 @@ class EntityController extends Controller
     {
         $validated = $request->validate([
             'entity_subtype_id' => ['nullable', 'integer', 'exists:entity_subtypes,id'],
+            'status' => ['required', Rule::in(Entity::STATUSES)],
             'country_id' => ['required', 'integer', 'exists:countries,id'],
             'place_id' => ['required', 'integer', 'exists:places,id'],
             'name' => ['required', 'string', 'max:255'],
@@ -196,6 +202,7 @@ class EntityController extends Controller
 
         $entity->update([
             'entity_subtype_id' => $entitySubtypeId,
+            'status' => $validated['status'],
             'country_id' => $validated['country_id'],
             'place_id' => $validated['place_id'],
             'name' => $validated['name'],

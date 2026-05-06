@@ -47,6 +47,18 @@
             </div>
 
             <div class="space-y-1">
+                <label for="status" class="block text-sm font-medium text-black">Статус</label>
+                <select id="status" name="status" required class="w-full rounded border border-gray-400 px-3 py-2 text-sm text-black">
+                    <option value="draft" @selected(old('status', $entity->status) === 'draft')>Чернова</option>
+                    <option value="published" @selected(old('status', $entity->status) === 'published')>Публикуван</option>
+                    <option value="hidden" @selected(old('status', $entity->status) === 'hidden')>Скрит</option>
+                </select>
+                @error('status')
+                    <p class="text-sm text-black">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="space-y-1">
                 <label for="country_id" class="block text-sm font-medium text-black">Държава</label>
                 <select id="country_id" name="country_id" required class="w-full rounded border border-gray-400 px-3 py-2 text-sm text-black">
                     <option value="">Изберете държава</option>

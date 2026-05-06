@@ -23,7 +23,7 @@
             </div>
         </div>
 
-        <form method="GET" action="{{ route('admin.entities.index') }}" class="grid gap-3 rounded-lg border border-gray-300 p-4 md:grid-cols-4">
+        <form method="GET" action="{{ route('admin.entities.index') }}" class="grid gap-3 rounded-lg border border-gray-300 p-4 md:grid-cols-5">
             <div class="space-y-1">
                 <label for="type" class="block text-sm font-medium text-black">Тип</label>
                 <select id="type" name="type" class="w-full rounded border border-gray-400 px-3 py-2 text-sm text-black">
@@ -45,6 +45,16 @@
                             {{ $entitySubtype->name }}
                         </option>
                     @endforeach
+                </select>
+            </div>
+
+            <div class="space-y-1">
+                <label for="status" class="block text-sm font-medium text-black">Статус</label>
+                <select id="status" name="status" class="w-full rounded border border-gray-400 px-3 py-2 text-sm text-black">
+                    <option value="">Всички</option>
+                    <option value="draft" @selected(request('status') === 'draft')>Чернова</option>
+                    <option value="published" @selected(request('status') === 'published')>Публикуван</option>
+                    <option value="hidden" @selected(request('status') === 'hidden')>Скрит</option>
                 </select>
             </div>
 
