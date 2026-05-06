@@ -1,0 +1,9 @@
+{
+  "total_sampled_rows": 50,
+  "rows_with_any_extraction_warnings": 0,
+  "rows_with_null_type": 0,
+  "rows_with_missing_ekatte_code": 0,
+  "rows_with_missing_municipality_name": 0,
+  "rows_with_missing_region_name": 0,
+  "problematic_rows": []
+}

@@ -1,0 +1,35 @@
+{
+  "total_processed_rows": 4692,
+  "rows_with_any_extraction_warnings": 2,
+  "rows_with_null_type": 2,
+  "rows_with_missing_ekatte_code": 0,
+  "rows_with_missing_municipality_name": 0,
+  "rows_with_missing_region_name": 0,
+  "warning_type_counts": {
+    "Unknown settlement-type prefix 'гара'; type left unset (not invented).": 2
+  },
+  "problematic_rows": [
+    {
+      "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D1%81%D0%BE%D1%84%D0%B8%D1%8F/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D1%81%D0%B2%D0%BE%D0%B3%D0%B5/%D0%B1%D0%BE%D0%B2-0",
+      "index_label": "Бов",
+      "extraction_warnings": [
+        "Unknown settlement-type prefix 'гара'; type left unset (not invented)."
+      ],
+      "null_critical_fields": [
+        "type"
+      ]
+    },
+    {
+      "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D1%81%D0%BE%D1%84%D0%B8%D1%8F/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D1%81%D0%B2%D0%BE%D0%B3%D0%B5/%D0%BB%D0%B0%D0%BA%D0%B0%D1%82%D0%BD%D0%B8%D0%BA",
+      "index_label": "Лакатник",
+      "extraction_warnings": [
+        "Unknown settlement-type prefix 'гара'; type left unset (not invented)."
+      ],
+      "null_critical_fields": [
+        "type"
+      ]
+    }
+  ],
+  "problematic_rows_truncated": false,
+  "problematic_rows_omitted": 0
+}

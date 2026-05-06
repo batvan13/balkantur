@@ -1,0 +1,502 @@
+[
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%B0%D0%BD%D1%81%D0%BA%D0%BE/%D0%B3%D0%BE%D1%81%D1%82%D1%83%D0%BD",
+    "index_label": "Гостун",
+    "name": "Гостун",
+    "ekatte_code": "17381",
+    "municipality_name": "Банско",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%B0%D0%BD%D1%81%D0%BA%D0%BE/%D0%B4%D0%BE%D0%B1%D1%80%D0%B8%D0%BD%D0%B8%D1%89%D0%B5",
+    "index_label": "Добринище",
+    "name": "Добринище",
+    "ekatte_code": "21498",
+    "municipality_name": "Банско",
+    "region_name": "Благоевград",
+    "type": "city",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%B0%D0%BD%D1%81%D0%BA%D0%BE/%D0%BA%D1%80%D0%B5%D0%BC%D0%B5%D0%BD",
+    "index_label": "Кремен",
+    "name": "Кремен",
+    "ekatte_code": "39614",
+    "municipality_name": "Банско",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%B0%D0%BD%D1%81%D0%BA%D0%BE/%D0%BC%D0%B5%D1%81%D1%82%D0%B0",
+    "index_label": "Места",
+    "name": "Места",
+    "ekatte_code": "47857",
+    "municipality_name": "Банско",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%B0%D0%BD%D1%81%D0%BA%D0%BE/%D0%BE%D0%B1%D0%B8%D0%B4%D0%B8%D0%BC",
+    "index_label": "Обидим",
+    "name": "Обидим",
+    "ekatte_code": "53059",
+    "municipality_name": "Банско",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%B0%D0%BD%D1%81%D0%BA%D0%BE/%D0%BE%D1%81%D0%B5%D0%BD%D0%BE%D0%B2%D0%BE",
+    "index_label": "Осеново",
+    "name": "Осеново",
+    "ekatte_code": "54136",
+    "municipality_name": "Банско",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%B0%D0%BD%D1%81%D0%BA%D0%BE/%D1%84%D0%B8%D0%BB%D0%B8%D0%BF%D0%BE%D0%B2%D0%BE",
+    "index_label": "Филипово",
+    "name": "Филипово",
+    "ekatte_code": "76090",
+    "municipality_name": "Банско",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%B5%D0%BB%D0%B8%D1%86%D0%B0/%D0%B1%D0%B0%D0%B1%D1%8F%D0%BA",
+    "index_label": "Бабяк",
+    "name": "Бабяк",
+    "ekatte_code": "02107",
+    "municipality_name": "Белица",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%B5%D0%BB%D0%B8%D1%86%D0%B0/%D0%B1%D0%B5%D0%BB%D0%B8%D1%86%D0%B0",
+    "index_label": "Белица",
+    "name": "Белица",
+    "ekatte_code": "03504",
+    "municipality_name": "Белица",
+    "region_name": "Благоевград",
+    "type": "city",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%B5%D0%BB%D0%B8%D1%86%D0%B0/%D0%B3%D0%BE%D1%80%D0%BD%D0%BE-%D0%BA%D1%80%D0%B0%D0%B8%D1%89%D0%B5",
+    "index_label": "Горно Краище",
+    "name": "Горно Краище",
+    "ekatte_code": "77596",
+    "municipality_name": "Белица",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%B5%D0%BB%D0%B8%D1%86%D0%B0/%D0%B3%D1%8A%D0%BB%D1%8A%D0%B1%D0%BE%D0%B2%D0%BE",
+    "index_label": "Гълъбово",
+    "name": "Гълъбово",
+    "ekatte_code": "15638",
+    "municipality_name": "Белица",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%B5%D0%BB%D0%B8%D1%86%D0%B0/%D0%B4%D0%B0%D0%B3%D0%BE%D0%BD%D0%BE%D0%B2%D0%BE",
+    "index_label": "Дагоново",
+    "name": "Дагоново",
+    "ekatte_code": "20064",
+    "municipality_name": "Белица",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%B5%D0%BB%D0%B8%D1%86%D0%B0/%D0%B7%D0%BB%D0%B0%D1%82%D0%B0%D1%80%D0%B8%D1%86%D0%B0",
+    "index_label": "Златарица",
+    "name": "Златарица",
+    "ekatte_code": "14521",
+    "municipality_name": "Белица",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%B5%D0%BB%D0%B8%D1%86%D0%B0/%D0%BA%D1%80%D0%B0%D0%B8%D1%89%D0%B5",
+    "index_label": "Краище",
+    "name": "Краище",
+    "ekatte_code": "39270",
+    "municipality_name": "Белица",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%B5%D0%BB%D0%B8%D1%86%D0%B0/%D0%BA%D1%83%D0%B7%D1%8C%D0%BE%D0%B2%D0%BE",
+    "index_label": "Кузьово",
+    "name": "Кузьово",
+    "ekatte_code": "40453",
+    "municipality_name": "Белица",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%B5%D0%BB%D0%B8%D1%86%D0%B0/%D0%BB%D1%8E%D1%82%D0%BE%D0%B2%D0%BE",
+    "index_label": "Лютово",
+    "name": "Лютово",
+    "ekatte_code": "44762",
+    "municipality_name": "Белица",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%B5%D0%BB%D0%B8%D1%86%D0%B0/%D0%BE%D1%80%D1%86%D0%B5%D0%B2%D0%BE",
+    "index_label": "Орцево",
+    "name": "Орцево",
+    "ekatte_code": "53998",
+    "municipality_name": "Белица",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%B5%D0%BB%D0%B8%D1%86%D0%B0/%D0%BF%D0%B0%D0%BB%D0%B0%D1%82%D0%B8%D0%BA",
+    "index_label": "Палатик",
+    "name": "Палатик",
+    "ekatte_code": "59330",
+    "municipality_name": "Белица",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%B1%D0%B5%D0%BB%D0%BE-%D0%BF%D0%BE%D0%BB%D0%B5",
+    "index_label": "Бело поле",
+    "name": "Бело поле",
+    "ekatte_code": "03664",
+    "municipality_name": "Благоевград",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%B1%D0%B8%D1%81%D1%82%D1%80%D0%B8%D1%86%D0%B0",
+    "index_label": "Бистрица",
+    "name": "Бистрица",
+    "ekatte_code": "04217",
+    "municipality_name": "Благоевград",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4",
+    "index_label": "Благоевград",
+    "name": "Благоевград",
+    "ekatte_code": "04279",
+    "municipality_name": "Благоевград",
+    "region_name": "Благоевград",
+    "type": "city",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%B1%D1%83%D1%87%D0%B8%D0%BD%D0%BE",
+    "index_label": "Бучино",
+    "name": "Бучино",
+    "ekatte_code": "07168",
+    "municipality_name": "Благоевград",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%B1%D1%8A%D0%BB%D0%B3%D0%B0%D1%80%D1%87%D0%B5%D0%B2%D0%BE",
+    "index_label": "Българчево",
+    "name": "Българчево",
+    "ekatte_code": "07377",
+    "municipality_name": "Благоевград",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%B3%D0%B0%D0%B1%D1%80%D0%BE%D0%B2%D0%BE",
+    "index_label": "Габрово",
+    "name": "Габрово",
+    "ekatte_code": "14204",
+    "municipality_name": "Благоевград",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%B3%D0%BE%D1%80%D0%BD%D0%BE-%D1%85%D1%8A%D1%80%D1%81%D0%BE%D0%B2%D0%BE",
+    "index_label": "Горно Хърсово",
+    "name": "Горно Хърсово",
+    "ekatte_code": "17004",
+    "municipality_name": "Благоевград",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%B4%D0%B5%D0%B1%D0%BE%D1%87%D0%B8%D1%86%D0%B0",
+    "index_label": "Дебочица",
+    "name": "Дебочица",
+    "ekatte_code": "20328",
+    "municipality_name": "Благоевград",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%B4%D1%80%D0%B5%D0%BD%D0%BA%D0%BE%D0%B2%D0%BE",
+    "index_label": "Дренково",
+    "name": "Дренково",
+    "ekatte_code": "23652",
+    "municipality_name": "Благоевград",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%B4%D1%8A%D0%B1%D1%80%D0%B0%D0%B2%D0%B0",
+    "index_label": "Дъбрава",
+    "name": "Дъбрава",
+    "ekatte_code": "24367",
+    "municipality_name": "Благоевград",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%B5%D0%BB%D0%B5%D0%BD%D0%BE%D0%B2%D0%BE",
+    "index_label": "Еленово",
+    "name": "Еленово",
+    "ekatte_code": "27231",
+    "municipality_name": "Благоевград",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BA%D0%BB%D0%B8%D1%81%D1%83%D1%80%D0%B0",
+    "index_label": "Клисура",
+    "name": "Клисура",
+    "ekatte_code": "37263",
+    "municipality_name": "Благоевград",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BB%D0%B8%D1%81%D0%B8%D1%8F",
+    "index_label": "Лисия",
+    "name": "Лисия",
+    "ekatte_code": "43863",
+    "municipality_name": "Благоевград",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BB%D0%BE%D0%B3%D0%BE%D0%B4%D0%B0%D0%B6",
+    "index_label": "Логодаж",
+    "name": "Логодаж",
+    "ekatte_code": "68792",
+    "municipality_name": "Благоевград",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BC%D0%B0%D1%80%D1%83%D0%BB%D0%B5%D0%B2%D0%BE",
+    "index_label": "Марулево",
+    "name": "Марулево",
+    "ekatte_code": "47370",
+    "municipality_name": "Благоевград",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BC%D0%BE%D1%89%D0%B0%D0%BD%D0%B5%D1%86",
+    "index_label": "Мощанец",
+    "name": "Мощанец",
+    "ekatte_code": "49179",
+    "municipality_name": "Благоевград",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D0%B5%D0%BB",
+    "index_label": "Обел",
+    "name": "Обел",
+    "ekatte_code": "53031",
+    "municipality_name": "Благоевград",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BF%D0%B0%D0%B4%D0%B5%D1%88",
+    "index_label": "Падеш",
+    "name": "Падеш",
+    "ekatte_code": "55107",
+    "municipality_name": "Благоевград",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BF%D0%BE%D0%BA%D1%80%D0%BE%D0%B2%D0%BD%D0%B8%D0%BA",
+    "index_label": "Покровник",
+    "name": "Покровник",
+    "ekatte_code": "57159",
+    "municipality_name": "Благоевград",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D1%80%D0%B8%D0%BB%D1%86%D0%B8",
+    "index_label": "Рилци",
+    "name": "Рилци",
+    "ekatte_code": "62699",
+    "municipality_name": "Благоевград",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D1%81%D0%B5%D0%BB%D0%B8%D1%89%D0%B5",
+    "index_label": "Селище",
+    "name": "Селище",
+    "ekatte_code": "66055",
+    "municipality_name": "Благоевград",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B3%D0%BE%D1%86%D0%B5-%D0%B4%D0%B5%D0%BB%D1%87%D0%B5%D0%B2/%D0%B1%D0%BE%D1%80%D0%BE%D0%B2%D0%BE",
+    "index_label": "Борово",
+    "name": "Борово",
+    "ekatte_code": "05606",
+    "municipality_name": "Гоце Делчев",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B3%D0%BE%D1%86%D0%B5-%D0%B4%D0%B5%D0%BB%D1%87%D0%B5%D0%B2/%D0%B1%D1%80%D0%B5%D0%B7%D0%BD%D0%B8%D1%86%D0%B0",
+    "index_label": "Брезница",
+    "name": "Брезница",
+    "ekatte_code": "06306",
+    "municipality_name": "Гоце Делчев",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B3%D0%BE%D1%86%D0%B5-%D0%B4%D0%B5%D0%BB%D1%87%D0%B5%D0%B2/%D0%B1%D1%83%D0%BA%D0%BE%D0%B2%D0%BE",
+    "index_label": "Буково",
+    "name": "Буково",
+    "ekatte_code": "07003",
+    "municipality_name": "Гоце Делчев",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B3%D0%BE%D1%86%D0%B5-%D0%B4%D0%B5%D0%BB%D1%87%D0%B5%D0%B2/%D0%B3%D0%BE%D1%81%D0%BF%D0%BE%D0%B4%D0%B8%D0%BD%D1%86%D0%B8",
+    "index_label": "Господинци",
+    "name": "Господинци",
+    "ekatte_code": "17347",
+    "municipality_name": "Гоце Делчев",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B3%D0%BE%D1%86%D0%B5-%D0%B4%D0%B5%D0%BB%D1%87%D0%B5%D0%B2/%D0%B3%D0%BE%D1%86%D0%B5-%D0%B4%D0%B5%D0%BB%D1%87%D0%B5%D0%B2",
+    "index_label": "Гоце Делчев",
+    "name": "Гоце Делчев",
+    "ekatte_code": "17395",
+    "municipality_name": "Гоце Делчев",
+    "region_name": "Благоевград",
+    "type": "city",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B3%D0%BE%D1%86%D0%B5-%D0%B4%D0%B5%D0%BB%D1%87%D0%B5%D0%B2/%D0%B4%D0%BE%D0%B1%D1%80%D0%BE%D1%82%D0%B8%D0%BD%D0%BE",
+    "index_label": "Добротино",
+    "name": "Добротино",
+    "ekatte_code": "21680",
+    "municipality_name": "Гоце Делчев",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B3%D0%BE%D1%86%D0%B5-%D0%B4%D0%B5%D0%BB%D1%87%D0%B5%D0%B2/%D0%BA%D0%BE%D1%80%D0%BD%D0%B8%D1%86%D0%B0",
+    "index_label": "Корница",
+    "name": "Корница",
+    "ekatte_code": "38666",
+    "municipality_name": "Гоце Делчев",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B3%D0%BE%D1%86%D0%B5-%D0%B4%D0%B5%D0%BB%D1%87%D0%B5%D0%B2/%D0%BB%D1%8A%D0%B6%D0%BD%D0%B8%D1%86%D0%B0",
+    "index_label": "Лъжница",
+    "name": "Лъжница",
+    "ekatte_code": "44416",
+    "municipality_name": "Гоце Делчев",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B3%D0%BE%D1%86%D0%B5-%D0%B4%D0%B5%D0%BB%D1%87%D0%B5%D0%B2/%D0%BC%D1%83%D1%81%D0%BE%D0%BC%D0%B8%D1%89%D0%B0",
+    "index_label": "Мосомище",
+    "name": "Мосомище",
+    "ekatte_code": "49432",
+    "municipality_name": "Гоце Делчев",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B3%D0%BE%D1%86%D0%B5-%D0%B4%D0%B5%D0%BB%D1%87%D0%B5%D0%B2/%D0%BF%D0%BE%D0%BF%D0%BE%D0%B2%D0%B8-%D0%BB%D0%B8%D0%B2%D0%B0%D0%B4%D0%B8",
+    "index_label": "Попови ливади",
+    "name": "Попови ливади",
+    "ekatte_code": "87802",
+    "municipality_name": "Гоце Делчев",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  },
+  {
+    "source_url": "https://www.ekatte.com/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82-%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B5%D0%B2%D0%B3%D1%80%D0%B0%D0%B4/%D0%BE%D0%B1%D1%89%D0%B8%D0%BD%D0%B0-%D0%B3%D1%8A%D1%80%D0%BC%D0%B5%D0%BD/%D0%B1%D0%B0%D0%BB%D0%B4%D0%B5%D0%B2%D0%BE",
+    "index_label": "Балдево",
+    "name": "Балдево",
+    "ekatte_code": "02381",
+    "municipality_name": "Гърмен",
+    "region_name": "Благоевград",
+    "type": "village",
+    "extraction_warnings": []
+  }
+]
