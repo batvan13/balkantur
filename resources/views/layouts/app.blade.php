@@ -11,7 +11,7 @@
             crossorigin="anonymous"></script>
 </head>
 <body class="min-h-screen bg-slate-100 text-slate-900 antialiased">
-    <main class="mx-auto max-w-lg px-4 py-10">
+    <main class="@yield('app_main_classes', 'mx-auto max-w-lg px-4 py-10')">
         @yield('content')
     </main>
     @stack('scripts')

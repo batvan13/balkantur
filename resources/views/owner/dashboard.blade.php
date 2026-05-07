@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('title', __('Owner panel'))
+@section('app_main_classes', 'mx-auto max-w-7xl px-4 py-4')
 
 @section('content')
-    <div class="relative left-1/2 w-[min(96vw,1280px)] -translate-x-1/2 space-y-6 bg-white px-2">
+    <div class="space-y-6">
         @if (session('success'))
             <div class="rounded-lg border border-gray-400 p-4 text-sm text-black">
                 {{ session('success') }}
