@@ -127,6 +127,41 @@
                 </div>
             @endif
 
+            @if ($entityType->code === 'accommodation')
+                @php
+                    $selectedFeatureIds = collect(old('feature_ids', $entity->features->pluck('id')->all()))->map(fn ($id) => (string) $id)->all();
+                    $featureGroups = $entityFeatures->groupBy('feature_group');
+                @endphp
+                <div class="space-y-3 rounded-lg border border-gray-300 p-4">
+                    <h3 class="text-sm font-semibold text-black">Характеристики на настаняване</h3>
+
+                    @foreach (['facility' => 'Удобства', 'policy' => 'Политики'] as $groupCode => $groupLabel)
+                        @if ($featureGroups->has($groupCode))
+                            <div class="space-y-2">
+                                <p class="text-sm font-medium text-gray-800">{{ $groupLabel }}</p>
+                                <div class="grid gap-2 sm:grid-cols-2">
+                                    @foreach ($featureGroups[$groupCode] as $feature)
+                                        <label class="flex items-center gap-2 rounded border border-gray-300 px-3 py-2 text-sm text-black">
+                                            <input
+                                                type="checkbox"
+                                                name="feature_ids[]"
+                                                value="{{ $feature->id }}"
+                                                @checked(in_array((string) $feature->id, $selectedFeatureIds, true))
+                                            >
+                                            <span>{{ $feature->name }}</span>
+                                        </label>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
+
+                    @error('feature_ids')
+                        <p class="text-sm text-black">{{ $message }}</p>
+                    @enderror
+                </div>
+            @endif
+
             <div class="pt-2">
                 <button type="submit" class="rounded border border-gray-400 px-4 py-2 text-sm text-black hover:bg-gray-100">
                     Запази промените

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Owner;
 use App\Http\Controllers\Controller;
 use App\Models\Country;
 use App\Models\Entity;
+use App\Models\EntityFeature;
 use App\Models\EntitySubtype;
 use App\Models\EntityType;
 use App\Models\Place;
@@ -29,6 +30,8 @@ class EntityController extends Controller
         '4 звезди',
         '5 звезди',
     ];
+
+    private const FEATURED_TYPE_CODE = 'accommodation';
 
     public function index(Request $request): View
     {
@@ -67,6 +70,7 @@ class EntityController extends Controller
                 ->where('entity_type_id', $entityType->id)
                 ->orderBy('name')
                 ->get(['id', 'name']),
+            'entityFeatures' => $this->loadTypeFeatures($entityType),
             'countries' => Country::query()->orderBy('name')->get(['id', 'name']),
             'selectedPlace' => $selectedPlace,
         ]);
@@ -85,13 +89,15 @@ class EntityController extends Controller
             'email' => ['nullable', 'email', 'max:255'],
             'website' => ['nullable', 'url', 'max:255'],
             'classification' => ['nullable', 'string', 'max:255'],
+            'feature_ids' => ['nullable', 'array'],
+            'feature_ids.*' => ['integer'],
         ]);
 
         $entityType = $this->resolveEntityType($validated);
         $entitySubtypeId = $this->resolveEntitySubtypeId($validated, $entityType->id);
         $classification = $this->resolveClassification($request, $entityType->code);
 
-        Entity::query()->create([
+        $entity = Entity::query()->create([
             'user_id' => $request->user()->id,
             'entity_type_id' => $entityType->id,
             'entity_subtype_id' => $entitySubtypeId,
@@ -104,6 +110,7 @@ class EntityController extends Controller
             'website' => $validated['website'] ?? null,
             'classification' => $classification,
         ]);
+        $entity->features()->sync($this->resolveFeatureIds($validated, $entityType));
 
         return redirect()
             ->route('owner.dashboard')
@@ -124,7 +131,7 @@ class EntityController extends Controller
     public function edit(Request $request, Entity $entity): View
     {
         $this->authorizeOwnerEntityAccess($request, $entity);
-        $entity->loadMissing(['entityType', 'place']);
+        $entity->loadMissing(['entityType', 'place', 'features']);
 
         $selectedPlace = null;
         $oldPlaceId = old('place_id');
@@ -145,6 +152,7 @@ class EntityController extends Controller
                 ->where('entity_type_id', $entity->entity_type_id)
                 ->orderBy('name')
                 ->get(['id', 'name']),
+            'entityFeatures' => $this->loadTypeFeatures($entity->entityType),
             'countries' => Country::query()->orderBy('name')->get(['id', 'name']),
             'selectedPlace' => $selectedPlace,
         ]);
@@ -164,6 +172,8 @@ class EntityController extends Controller
             'email' => ['nullable', 'email', 'max:255'],
             'website' => ['nullable', 'url', 'max:255'],
             'classification' => ['nullable', 'string', 'max:255'],
+            'feature_ids' => ['nullable', 'array'],
+            'feature_ids.*' => ['integer'],
         ]);
 
         $entitySubtypeId = $this->resolveEntitySubtypeId($validated, $entity->entity_type_id);
@@ -180,6 +190,7 @@ class EntityController extends Controller
             'website' => $validated['website'] ?? null,
             'classification' => $classification,
         ]);
+        $entity->features()->sync($this->resolveFeatureIds($validated, $entity->entityType));
 
         return redirect()
             ->route('owner.entities.show', $entity)
@@ -262,6 +273,44 @@ class EntityController extends Controller
     private function authorizeOwnerEntityAccess(Request $request, Entity $entity): void
     {
         abort_if($entity->user_id !== $request->user()->id, 403);
+    }
+
+    private function loadTypeFeatures(EntityType $entityType)
+    {
+        if ($entityType->code !== self::FEATURED_TYPE_CODE) {
+            return collect();
+        }
+
+        return EntityFeature::query()
+            ->where('entity_type_id', $entityType->id)
+            ->orderBy('feature_group')
+            ->orderBy('name')
+            ->get(['id', 'name', 'feature_group']);
+    }
+
+    private function resolveFeatureIds(array $validated, EntityType $entityType): array
+    {
+        if ($entityType->code !== self::FEATURED_TYPE_CODE) {
+            return [];
+        }
+
+        $featureIds = array_values(array_unique($validated['feature_ids'] ?? []));
+        if ($featureIds === []) {
+            return [];
+        }
+
+        $validCount = EntityFeature::query()
+            ->where('entity_type_id', $entityType->id)
+            ->whereIn('id', $featureIds)
+            ->count();
+
+        if ($validCount !== count($featureIds)) {
+            throw ValidationException::withMessages([
+                'feature_ids' => 'Избрани са невалидни характеристики за този тип обект.',
+            ]);
+        }
+
+        return array_map('intval', $featureIds);
     }
 }
 

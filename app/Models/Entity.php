@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Entity extends Model
 {
@@ -58,6 +59,12 @@ class Entity extends Model
     public function place(): BelongsTo
     {
         return $this->belongsTo(Place::class);
+    }
+
+    public function features(): BelongsToMany
+    {
+        return $this->belongsToMany(EntityFeature::class, 'entity_entity_feature')
+            ->withTimestamps();
     }
 }
 
