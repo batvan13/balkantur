@@ -8,6 +8,7 @@ use App\Models\Entity;
 use App\Models\EntityFeature;
 use App\Models\EntitySubtype;
 use App\Models\EntityType;
+use App\Models\FoodPlaceCuisine;
 use App\Models\Place;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -32,6 +33,8 @@ class EntityController extends Controller
     ];
 
     private const FEATURED_TYPE_CODE = 'accommodation';
+
+    private const CUISINE_TYPE_CODE = 'food_place';
 
     public function index(Request $request): View
     {
@@ -71,6 +74,7 @@ class EntityController extends Controller
                 ->orderBy('name')
                 ->get(['id', 'name']),
             'entityFeatures' => $this->loadTypeFeatures($entityType),
+            'foodPlaceCuisines' => $this->loadTypeCuisines($entityType),
             'countries' => Country::query()->orderBy('name')->get(['id', 'name']),
             'selectedPlace' => $selectedPlace,
         ]);
@@ -91,6 +95,8 @@ class EntityController extends Controller
             'classification' => ['nullable', 'string', 'max:255'],
             'feature_ids' => ['nullable', 'array'],
             'feature_ids.*' => ['integer'],
+            'cuisine_ids' => ['nullable', 'array'],
+            'cuisine_ids.*' => ['integer'],
         ]);
 
         $entityType = $this->resolveEntityType($validated);
@@ -111,6 +117,7 @@ class EntityController extends Controller
             'classification' => $classification,
         ]);
         $entity->features()->sync($this->resolveFeatureIds($validated, $entityType));
+        $entity->cuisines()->sync($this->resolveCuisineIds($validated, $entityType));
 
         return redirect()
             ->route('owner.dashboard')
@@ -131,7 +138,7 @@ class EntityController extends Controller
     public function edit(Request $request, Entity $entity): View
     {
         $this->authorizeOwnerEntityAccess($request, $entity);
-        $entity->loadMissing(['entityType', 'place', 'features']);
+        $entity->loadMissing(['entityType', 'place', 'features', 'cuisines']);
 
         $selectedPlace = null;
         $oldPlaceId = old('place_id');
@@ -153,6 +160,7 @@ class EntityController extends Controller
                 ->orderBy('name')
                 ->get(['id', 'name']),
             'entityFeatures' => $this->loadTypeFeatures($entity->entityType),
+            'foodPlaceCuisines' => $this->loadTypeCuisines($entity->entityType),
             'countries' => Country::query()->orderBy('name')->get(['id', 'name']),
             'selectedPlace' => $selectedPlace,
         ]);
@@ -174,6 +182,8 @@ class EntityController extends Controller
             'classification' => ['nullable', 'string', 'max:255'],
             'feature_ids' => ['nullable', 'array'],
             'feature_ids.*' => ['integer'],
+            'cuisine_ids' => ['nullable', 'array'],
+            'cuisine_ids.*' => ['integer'],
         ]);
 
         $entitySubtypeId = $this->resolveEntitySubtypeId($validated, $entity->entity_type_id);
@@ -191,6 +201,7 @@ class EntityController extends Controller
             'classification' => $classification,
         ]);
         $entity->features()->sync($this->resolveFeatureIds($validated, $entity->entityType));
+        $entity->cuisines()->sync($this->resolveCuisineIds($validated, $entity->entityType));
 
         return redirect()
             ->route('owner.entities.show', $entity)
@@ -311,6 +322,41 @@ class EntityController extends Controller
         }
 
         return array_map('intval', $featureIds);
+    }
+
+    private function loadTypeCuisines(EntityType $entityType)
+    {
+        if ($entityType->code !== self::CUISINE_TYPE_CODE) {
+            return collect();
+        }
+
+        return FoodPlaceCuisine::query()
+            ->orderBy('name')
+            ->get(['id', 'name']);
+    }
+
+    private function resolveCuisineIds(array $validated, EntityType $entityType): array
+    {
+        if ($entityType->code !== self::CUISINE_TYPE_CODE) {
+            return [];
+        }
+
+        $cuisineIds = array_values(array_unique($validated['cuisine_ids'] ?? []));
+        if ($cuisineIds === []) {
+            return [];
+        }
+
+        $validCount = FoodPlaceCuisine::query()
+            ->whereIn('id', $cuisineIds)
+            ->count();
+
+        if ($validCount !== count($cuisineIds)) {
+            throw ValidationException::withMessages([
+                'cuisine_ids' => 'Избрани са невалидни кухни за този тип обект.',
+            ]);
+        }
+
+        return array_map('intval', $cuisineIds);
     }
 }
 

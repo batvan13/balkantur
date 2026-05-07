@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(EntityTypeSeeder::class);
         $this->call(EntitySubtypeSeeder::class);
         $this->call(EntityFeatureSeeder::class);
+        $this->call(FoodPlaceCuisineSeeder::class);
     }
 }

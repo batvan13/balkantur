@@ -162,6 +162,31 @@
                 </div>
             @endif
 
+            @if ($entityType->code === 'food_place')
+                @php
+                    $selectedCuisineIds = collect(old('cuisine_ids', $entity->cuisines->pluck('id')->all()))->map(fn ($id) => (string) $id)->all();
+                @endphp
+                <div class="space-y-3 rounded-lg border border-gray-300 p-4">
+                    <h3 class="text-sm font-semibold text-black">Тип кухня</h3>
+                    <div class="grid gap-2 sm:grid-cols-2">
+                        @foreach ($foodPlaceCuisines as $cuisine)
+                            <label class="flex items-center gap-2 rounded border border-gray-300 px-3 py-2 text-sm text-black">
+                                <input
+                                    type="checkbox"
+                                    name="cuisine_ids[]"
+                                    value="{{ $cuisine->id }}"
+                                    @checked(in_array((string) $cuisine->id, $selectedCuisineIds, true))
+                                >
+                                <span>{{ $cuisine->name }}</span>
+                            </label>
+                        @endforeach
+                    </div>
+                    @error('cuisine_ids')
+                        <p class="text-sm text-black">{{ $message }}</p>
+                    @enderror
+                </div>
+            @endif
+
             <div class="pt-2">
                 <button type="submit" class="rounded border border-gray-400 px-4 py-2 text-sm text-black hover:bg-gray-100">
                     Запази промените
