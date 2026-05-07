@@ -17,6 +17,11 @@ use Illuminate\View\View;
 
 class EntityController extends Controller
 {
+    private const CLASSIFIABLE_TYPE_CODES = [
+        'accommodation',
+        'food_place',
+    ];
+
     private const ACCOMMODATION_CLASSIFICATIONS = [
         '1 звезда',
         '2 звезди',
@@ -247,7 +252,7 @@ class EntityController extends Controller
 
     private function resolveClassification(Request $request, string $entityTypeCode): ?string
     {
-        if ($entityTypeCode !== 'accommodation') {
+        if (! in_array($entityTypeCode, self::CLASSIFIABLE_TYPE_CODES, true)) {
             return null;
         }
 

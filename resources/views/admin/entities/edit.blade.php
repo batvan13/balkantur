@@ -110,7 +110,7 @@
                 <input id="website" name="website" type="url" value="{{ old('website', $entity->website) }}" maxlength="255" class="w-full rounded border border-gray-400 px-3 py-2 text-sm text-black">
             </div>
 
-            @if ($entityType->code === 'accommodation')
+            @if (in_array($entityType->code, ['accommodation', 'food_place'], true))
                 <div class="space-y-1">
                     <label for="classification" class="block text-sm font-medium text-black">Категоризация</label>
                     <select id="classification" name="classification" class="w-full rounded border border-gray-400 px-3 py-2 text-sm text-black">

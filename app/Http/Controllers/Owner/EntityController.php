@@ -17,6 +17,11 @@ use Illuminate\View\View;
 
 class EntityController extends Controller
 {
+    private const CLASSIFIABLE_TYPE_CODES = [
+        'accommodation',
+        'food_place',
+    ];
+
     private const ACCOMMODATION_CLASSIFICATIONS = [
         '1 звезда',
         '2 звезди',
@@ -70,8 +75,7 @@ class EntityController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
-            'entity_type_id' => ['nullable', 'required_without:type', 'integer', 'exists:entity_types,id'],
-            'type' => ['nullable', 'required_without:entity_type_id', 'string', 'exists:entity_types,code'],
+            'type' => ['required', 'string', 'exists:entity_types,code'],
             'entity_subtype_id' => ['nullable', 'integer', 'exists:entity_subtypes,id'],
             'country_id' => ['required', 'integer', 'exists:countries,id'],
             'place_id' => ['required', 'integer', 'exists:places,id'],
@@ -211,10 +215,6 @@ class EntityController extends Controller
 
     private function resolveEntityType(array $validated): EntityType
     {
-        if (! empty($validated['entity_type_id'])) {
-            return EntityType::query()->findOrFail($validated['entity_type_id']);
-        }
-
         return EntityType::query()
             ->where('code', $validated['type'])
             ->firstOrFail();
@@ -222,7 +222,7 @@ class EntityController extends Controller
 
     private function resolveClassification(Request $request, string $entityTypeCode): ?string
     {
-        if ($entityTypeCode !== 'accommodation') {
+        if (! in_array($entityTypeCode, self::CLASSIFIABLE_TYPE_CODES, true)) {
             return null;
         }
 
