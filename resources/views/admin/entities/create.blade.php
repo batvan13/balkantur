@@ -213,6 +213,44 @@
                 </div>
             @endif
 
+            @if ($entityType->code === 'food_place')
+                @php
+                    $selectedEntIds = collect(old('food_place_entertainment_item_ids', isset($entity) ? $entity->foodPlaceEntertainmentItems->pluck('id')->all() : []))->map(fn ($id) => (string) $id)->all();
+                    $entGroups = $foodPlaceEntertainmentOptions->groupBy('metadata_group');
+                @endphp
+                <div class="space-y-3 rounded-lg border border-gray-300 p-4">
+                    <h3 class="text-sm font-semibold text-black">Музика и забавление (метаданни)</h3>
+                    <p class="text-xs text-gray-700">Жанровете описват типичния репертоар и не заместват екстрата „Жива музика“.</p>
+                    @foreach ([
+                        'offering' => 'Формати / предлагане',
+                        'genre_balkan' => 'Балканска и регионална музика',
+                        'genre_international' => 'Международни стилове',
+                    ] as $groupCode => $groupLabel)
+                        @if ($entGroups->has($groupCode))
+                            <div class="space-y-2">
+                                <p class="text-sm font-medium text-gray-800">{{ $groupLabel }}</p>
+                                <div class="grid gap-2 sm:grid-cols-2">
+                                    @foreach ($entGroups[$groupCode] as $item)
+                                        <label class="flex items-center gap-2 rounded border border-gray-300 px-3 py-2 text-sm text-black">
+                                            <input
+                                                type="checkbox"
+                                                name="food_place_entertainment_item_ids[]"
+                                                value="{{ $item->id }}"
+                                                @checked(in_array((string) $item->id, $selectedEntIds, true))
+                                            >
+                                            <span>{{ $item->name }}</span>
+                                        </label>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
+                    @error('food_place_entertainment_item_ids')
+                        <p class="text-sm text-black">{{ $message }}</p>
+                    @enderror
+                </div>
+            @endif
+
             <div class="pt-2">
                 <button type="submit" class="rounded border border-gray-400 px-4 py-2 text-sm text-black hover:bg-gray-100">
                     Запази

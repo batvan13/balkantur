@@ -9,6 +9,7 @@ use App\Models\EntityFeature;
 use App\Models\EntitySubtype;
 use App\Models\EntityType;
 use App\Models\FoodPlaceCuisine;
+use App\Models\FoodPlaceEntertainmentItem;
 use App\Models\FoodPlaceFeature;
 use App\Models\Place;
 use Illuminate\Http\JsonResponse;
@@ -38,6 +39,8 @@ class EntityController extends Controller
     private const CUISINE_TYPE_CODE = 'food_place';
 
     private const FOOD_PLACE_FEATURES_TYPE_CODE = 'food_place';
+
+    private const FOOD_PLACE_ENTERTAINMENT_TYPE_CODE = 'food_place';
 
     public function index(Request $request): View
     {
@@ -117,6 +120,7 @@ class EntityController extends Controller
             'entityFeatures' => $this->loadTypeFeatures($entityType),
             'foodPlaceCuisines' => $this->loadTypeCuisines($entityType),
             'foodPlaceFeatureOptions' => $this->loadFoodPlaceFeatureOptions($entityType),
+            'foodPlaceEntertainmentOptions' => $this->loadFoodPlaceEntertainmentOptions($entityType),
             'countries' => Country::query()->orderBy('name')->get(['id', 'name']),
             'selectedPlace' => $selectedPlace,
         ]);
@@ -141,6 +145,8 @@ class EntityController extends Controller
             'cuisine_ids.*' => ['integer'],
             'food_place_feature_ids' => ['nullable', 'array'],
             'food_place_feature_ids.*' => ['integer'],
+            'food_place_entertainment_item_ids' => ['nullable', 'array'],
+            'food_place_entertainment_item_ids.*' => ['integer'],
         ]);
 
         $entityType = EntityType::query()
@@ -165,6 +171,7 @@ class EntityController extends Controller
         $entity->features()->sync($this->resolveFeatureIds($validated, $entityType));
         $entity->cuisines()->sync($this->resolveCuisineIds($validated, $entityType));
         $entity->foodPlaceFeatures()->sync($this->resolveFoodPlaceFeatureIds($validated, $entityType));
+        $entity->foodPlaceEntertainmentItems()->sync($this->resolveFoodPlaceEntertainmentItemIds($validated, $entityType));
 
         return redirect()
             ->route('admin.entities.show', $entity)
@@ -173,7 +180,7 @@ class EntityController extends Controller
 
     public function show(Entity $entity): View
     {
-        $entity->loadMissing(['entityType', 'entitySubtype', 'country', 'place', 'user', 'features', 'cuisines', 'foodPlaceFeatures']);
+        $entity->loadMissing(['entityType', 'entitySubtype', 'country', 'place', 'user', 'features', 'cuisines', 'foodPlaceFeatures', 'foodPlaceEntertainmentItems']);
 
         return view('admin.entities.show', [
             'entity' => $entity,
@@ -182,7 +189,7 @@ class EntityController extends Controller
 
     public function edit(Entity $entity): View
     {
-        $entity->loadMissing(['entityType', 'entitySubtype', 'country', 'place', 'user', 'features', 'cuisines', 'foodPlaceFeatures']);
+        $entity->loadMissing(['entityType', 'entitySubtype', 'country', 'place', 'user', 'features', 'cuisines', 'foodPlaceFeatures', 'foodPlaceEntertainmentItems']);
 
         $selectedPlace = null;
         $oldPlaceId = old('place_id');
@@ -206,6 +213,7 @@ class EntityController extends Controller
             'entityFeatures' => $this->loadTypeFeatures($entity->entityType),
             'foodPlaceCuisines' => $this->loadTypeCuisines($entity->entityType),
             'foodPlaceFeatureOptions' => $this->loadFoodPlaceFeatureOptions($entity->entityType),
+            'foodPlaceEntertainmentOptions' => $this->loadFoodPlaceEntertainmentOptions($entity->entityType),
             'countries' => Country::query()->orderBy('name')->get(['id', 'name']),
             'selectedPlace' => $selectedPlace,
         ]);
@@ -230,6 +238,8 @@ class EntityController extends Controller
             'cuisine_ids.*' => ['integer'],
             'food_place_feature_ids' => ['nullable', 'array'],
             'food_place_feature_ids.*' => ['integer'],
+            'food_place_entertainment_item_ids' => ['nullable', 'array'],
+            'food_place_entertainment_item_ids.*' => ['integer'],
         ]);
 
         $entitySubtypeId = $this->resolveEntitySubtypeId($validated, $entity->entity_type_id);
@@ -250,6 +260,7 @@ class EntityController extends Controller
         $entity->features()->sync($this->resolveFeatureIds($validated, $entity->entityType));
         $entity->cuisines()->sync($this->resolveCuisineIds($validated, $entity->entityType));
         $entity->foodPlaceFeatures()->sync($this->resolveFoodPlaceFeatureIds($validated, $entity->entityType));
+        $entity->foodPlaceEntertainmentItems()->sync($this->resolveFoodPlaceEntertainmentItemIds($validated, $entity->entityType));
 
         return redirect()
             ->route('admin.entities.show', $entity)
@@ -430,5 +441,44 @@ class EntityController extends Controller
 
         return array_map('intval', $ids);
     }
-}
 
+    private function loadFoodPlaceEntertainmentOptions(EntityType $entityType)
+    {
+        if ($entityType->code !== self::FOOD_PLACE_ENTERTAINMENT_TYPE_CODE) {
+            return collect();
+        }
+
+        return FoodPlaceEntertainmentItem::query()
+            ->orderByRaw('CASE metadata_group WHEN ? THEN 0 WHEN ? THEN 1 WHEN ? THEN 2 ELSE 3 END', [
+                FoodPlaceEntertainmentItem::GROUP_OFFERING,
+                FoodPlaceEntertainmentItem::GROUP_GENRE_BALKAN,
+                FoodPlaceEntertainmentItem::GROUP_GENRE_INTERNATIONAL,
+            ])
+            ->orderBy('name')
+            ->get(['id', 'name', 'metadata_group']);
+    }
+
+    private function resolveFoodPlaceEntertainmentItemIds(array $validated, EntityType $entityType): array
+    {
+        if ($entityType->code !== self::FOOD_PLACE_ENTERTAINMENT_TYPE_CODE) {
+            return [];
+        }
+
+        $ids = array_values(array_unique($validated['food_place_entertainment_item_ids'] ?? []));
+        if ($ids === []) {
+            return [];
+        }
+
+        $validCount = FoodPlaceEntertainmentItem::query()
+            ->whereIn('id', $ids)
+            ->count();
+
+        if ($validCount !== count($ids)) {
+            throw ValidationException::withMessages([
+                'food_place_entertainment_item_ids' => 'Избрани са невалидни музикални метаданни за място за хранене.',
+            ]);
+        }
+
+        return array_map('intval', $ids);
+    }
+}
