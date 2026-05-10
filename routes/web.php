@@ -4,7 +4,9 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\EntityController as AdminEntityController;
+use App\Http\Controllers\Admin\EntityMediaController as AdminEntityMediaController;
 use App\Http\Controllers\Owner\EntityController as OwnerEntityController;
+use App\Http\Controllers\Owner\EntityMediaController as OwnerEntityMediaController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -44,6 +46,11 @@ Route::middleware(['auth', 'role:'.User::ROLE_SUPER_ADMIN])->prefix('admin')->gr
     Route::get('/entities/{entity}', [AdminEntityController::class, 'show'])->name('admin.entities.show');
     Route::get('/entities/{entity}/edit', [AdminEntityController::class, 'edit'])->name('admin.entities.edit');
     Route::match(['put', 'patch'], '/entities/{entity}', [AdminEntityController::class, 'update'])->name('admin.entities.update');
+    Route::get('/entities/{entity}/media', [AdminEntityMediaController::class, 'edit'])->name('admin.entities.media.edit');
+    Route::post('/entities/{entity}/media/images', [AdminEntityMediaController::class, 'storeImages'])->name('admin.entities.media.images.store');
+    Route::post('/entities/{entity}/media/video', [AdminEntityMediaController::class, 'storeVideo'])->name('admin.entities.media.video.store');
+    Route::post('/entities/{entity}/media/{media}/cover', [AdminEntityMediaController::class, 'setCover'])->name('admin.entities.media.cover');
+    Route::delete('/entities/{entity}/media/{media}', [AdminEntityMediaController::class, 'destroy'])->name('admin.entities.media.destroy');
     Route::get('/places/search', [AdminEntityController::class, 'searchPlaces'])->name('admin.places.search');
 });
 
@@ -57,6 +64,11 @@ Route::middleware(['auth', 'role:'.User::ROLE_SUPER_ADMIN.','.User::ROLE_OWNER])
     Route::post('/entities', [OwnerEntityController::class, 'store'])->name('owner.entities.store');
     Route::get('/entities/{entity}/edit', [OwnerEntityController::class, 'edit'])->name('owner.entities.edit');
     Route::match(['put', 'patch'], '/entities/{entity}', [OwnerEntityController::class, 'update'])->name('owner.entities.update');
+    Route::get('/entities/{entity}/media', [OwnerEntityMediaController::class, 'edit'])->name('owner.entities.media.edit');
+    Route::post('/entities/{entity}/media/images', [OwnerEntityMediaController::class, 'storeImages'])->name('owner.entities.media.images.store');
+    Route::post('/entities/{entity}/media/video', [OwnerEntityMediaController::class, 'storeVideo'])->name('owner.entities.media.video.store');
+    Route::post('/entities/{entity}/media/{media}/cover', [OwnerEntityMediaController::class, 'setCover'])->name('owner.entities.media.cover');
+    Route::delete('/entities/{entity}/media/{media}', [OwnerEntityMediaController::class, 'destroy'])->name('owner.entities.media.destroy');
     Route::get('/entities/{entity}', [OwnerEntityController::class, 'show'])->name('owner.entities.show');
     Route::get('/places/search', [OwnerEntityController::class, 'searchPlaces'])->name('owner.places.search');
 });

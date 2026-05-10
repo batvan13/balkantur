@@ -7,9 +7,14 @@
     <div class="mx-auto max-w-5xl space-y-6 bg-white">
         <div class="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-gray-300 p-4">
             <h1 class="text-2xl font-semibold text-black">Редакция на обект</h1>
-            <a href="{{ route('admin.entities.show', $entity) }}" class="rounded border border-gray-400 px-3 py-2 text-sm text-black hover:bg-gray-100">
-                Назад към прегледа
-            </a>
+            <div class="flex flex-wrap gap-2">
+                <a href="{{ route('admin.entities.show', $entity) }}" class="rounded border border-gray-400 px-3 py-2 text-sm text-black hover:bg-gray-100">
+                    Назад към прегледа
+                </a>
+                <a href="{{ route('admin.entities.media.edit', $entity) }}" class="rounded border border-gray-400 px-3 py-2 text-sm text-black hover:bg-gray-100">
+                    Медия
+                </a>
+            </div>
         </div>
 
         @if ($errors->any())

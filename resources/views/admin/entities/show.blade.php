@@ -20,6 +20,9 @@
                 <a href="{{ route('admin.entities.edit', $entity) }}" class="rounded border border-gray-400 px-3 py-2 text-sm text-black hover:bg-gray-100">
                     Редакция
                 </a>
+                <a href="{{ route('admin.entities.media.edit', $entity) }}" class="rounded border border-gray-400 px-3 py-2 text-sm text-black hover:bg-gray-100">
+                    Медия
+                </a>
             </div>
         </div>
 

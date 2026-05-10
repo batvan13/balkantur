@@ -87,6 +87,11 @@ class Entity extends Model
             ->withTimestamps();
     }
 
+    public function entityMedia(): HasMany
+    {
+        return $this->hasMany(EntityMedia::class)->orderBy('sort_order')->orderBy('id');
+    }
+
     public function translations(): HasMany
     {
         return $this->hasMany(EntityTranslation::class);
