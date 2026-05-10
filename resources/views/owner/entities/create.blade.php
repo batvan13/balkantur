@@ -174,6 +174,44 @@
                 </div>
             @endif
 
+            @if ($entityType->code === 'food_place')
+                @php
+                    $selectedFpFeatureIds = collect(old('food_place_feature_ids', []))->map(fn ($id) => (string) $id)->all();
+                    $fpFeatureGroups = $foodPlaceFeatureOptions->groupBy('feature_group');
+                @endphp
+                <div class="space-y-3 rounded-lg border border-gray-300 p-4">
+                    <h3 class="text-sm font-semibold text-black">Екстри / услуги</h3>
+                    @foreach ([
+                        'facility' => 'Удобства',
+                        'service' => 'Услуги',
+                        'entertainment' => 'Развлечения',
+                        'payment_access' => 'Плащане и достъп',
+                    ] as $groupCode => $groupLabel)
+                        @if ($fpFeatureGroups->has($groupCode))
+                            <div class="space-y-2">
+                                <p class="text-sm font-medium text-gray-800">{{ $groupLabel }}</p>
+                                <div class="grid gap-2 sm:grid-cols-2">
+                                    @foreach ($fpFeatureGroups[$groupCode] as $fpFeature)
+                                        <label class="flex items-center gap-2 rounded border border-gray-300 px-3 py-2 text-sm text-black">
+                                            <input
+                                                type="checkbox"
+                                                name="food_place_feature_ids[]"
+                                                value="{{ $fpFeature->id }}"
+                                                @checked(in_array((string) $fpFeature->id, $selectedFpFeatureIds, true))
+                                            >
+                                            <span>{{ $fpFeature->name }}</span>
+                                        </label>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
+                    @error('food_place_feature_ids')
+                        <p class="text-sm text-black">{{ $message }}</p>
+                    @enderror
+                </div>
+            @endif
+
             <div class="pt-2">
                 <button type="submit" class="rounded border border-gray-400 px-4 py-2 text-sm text-black hover:bg-gray-100">
                     Запази

@@ -72,5 +72,11 @@ class Entity extends Model
         return $this->belongsToMany(FoodPlaceCuisine::class, 'entity_food_place_cuisine')
             ->withTimestamps();
     }
+
+    public function foodPlaceFeatures(): BelongsToMany
+    {
+        return $this->belongsToMany(FoodPlaceFeature::class, 'entity_food_place_feature')
+            ->withTimestamps();
+    }
 }
 
