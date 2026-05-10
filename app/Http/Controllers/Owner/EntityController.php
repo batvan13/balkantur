@@ -114,6 +114,10 @@ class EntityController extends Controller
         $entityType = $this->resolveEntityType($validated);
         $entitySubtypeId = $this->resolveEntitySubtypeId($validated, $entityType->id);
         $classification = $this->resolveClassification($request, $entityType->code);
+        $featureIds = $this->resolveFeatureIds($validated, $entityType);
+        $cuisineIds = $this->resolveCuisineIds($validated, $entityType);
+        $foodPlaceFeatureIds = $this->resolveFoodPlaceFeatureIds($validated, $entityType);
+        $foodPlaceEntertainmentItemIds = $this->resolveFoodPlaceEntertainmentItemIds($validated, $entityType);
 
         $entity = Entity::query()->create([
             'user_id' => $request->user()->id,
@@ -128,10 +132,10 @@ class EntityController extends Controller
             'website' => $validated['website'] ?? null,
             'classification' => $classification,
         ]);
-        $entity->features()->sync($this->resolveFeatureIds($validated, $entityType));
-        $entity->cuisines()->sync($this->resolveCuisineIds($validated, $entityType));
-        $entity->foodPlaceFeatures()->sync($this->resolveFoodPlaceFeatureIds($validated, $entityType));
-        $entity->foodPlaceEntertainmentItems()->sync($this->resolveFoodPlaceEntertainmentItemIds($validated, $entityType));
+        $entity->features()->sync($featureIds);
+        $entity->cuisines()->sync($cuisineIds);
+        $entity->foodPlaceFeatures()->sync($foodPlaceFeatureIds);
+        $entity->foodPlaceEntertainmentItems()->sync($foodPlaceEntertainmentItemIds);
 
         return redirect()
             ->route('owner.dashboard')
@@ -208,6 +212,10 @@ class EntityController extends Controller
 
         $entitySubtypeId = $this->resolveEntitySubtypeId($validated, $entity->entity_type_id);
         $classification = $this->resolveClassification($request, $entity->entityType->code);
+        $featureIds = $this->resolveFeatureIds($validated, $entity->entityType);
+        $cuisineIds = $this->resolveCuisineIds($validated, $entity->entityType);
+        $foodPlaceFeatureIds = $this->resolveFoodPlaceFeatureIds($validated, $entity->entityType);
+        $foodPlaceEntertainmentItemIds = $this->resolveFoodPlaceEntertainmentItemIds($validated, $entity->entityType);
 
         $entity->update([
             'entity_subtype_id' => $entitySubtypeId,
@@ -220,10 +228,10 @@ class EntityController extends Controller
             'website' => $validated['website'] ?? null,
             'classification' => $classification,
         ]);
-        $entity->features()->sync($this->resolveFeatureIds($validated, $entity->entityType));
-        $entity->cuisines()->sync($this->resolveCuisineIds($validated, $entity->entityType));
-        $entity->foodPlaceFeatures()->sync($this->resolveFoodPlaceFeatureIds($validated, $entity->entityType));
-        $entity->foodPlaceEntertainmentItems()->sync($this->resolveFoodPlaceEntertainmentItemIds($validated, $entity->entityType));
+        $entity->features()->sync($featureIds);
+        $entity->cuisines()->sync($cuisineIds);
+        $entity->foodPlaceFeatures()->sync($foodPlaceFeatureIds);
+        $entity->foodPlaceEntertainmentItems()->sync($foodPlaceEntertainmentItemIds);
 
         return redirect()
             ->route('owner.entities.show', $entity)
