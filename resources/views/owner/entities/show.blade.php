@@ -67,6 +67,10 @@
                     <div class="md:col-span-2 text-black">{{ $entity->address ?: '-' }}</div>
                 </div>
                 <div class="grid grid-cols-1 gap-2 p-4 md:grid-cols-3">
+                    <div class="font-medium text-gray-700">Описание</div>
+                    <div class="md:col-span-2 text-black whitespace-pre-wrap break-words">{{ ($entity->bgTranslation?->description) ?: '-' }}</div>
+                </div>
+                <div class="grid grid-cols-1 gap-2 p-4 md:grid-cols-3">
                     <div class="font-medium text-gray-700">Телефон</div>
                     <div class="md:col-span-2 text-black">{{ $entity->phone ?: '-' }}</div>
                 </div>

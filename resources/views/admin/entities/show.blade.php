@@ -30,6 +30,7 @@
                 <div class="grid grid-cols-1 gap-2 p-4 md:grid-cols-3"><div class="font-medium text-gray-700">Подтип</div><div class="md:col-span-2 text-black">{{ $entity->entitySubtype?->name ?? '-' }}</div></div>
                 <div class="grid grid-cols-1 gap-2 p-4 md:grid-cols-3"><div class="font-medium text-gray-700">Статус</div><div class="md:col-span-2 text-black">@if ($entity->status === 'draft') Чернова @elseif ($entity->status === 'published') Публикуван @elseif ($entity->status === 'hidden') Скрит @else {{ $entity->status ?: '-' }} @endif</div></div>
                 <div class="grid grid-cols-1 gap-2 p-4 md:grid-cols-3"><div class="font-medium text-gray-700">Категоризация</div><div class="md:col-span-2 text-black">{{ $entity->classification ?: '-' }}</div></div>
+                <div class="grid grid-cols-1 gap-2 p-4 md:grid-cols-3"><div class="font-medium text-gray-700">Описание</div><div class="md:col-span-2 text-black whitespace-pre-wrap break-words">{{ ($entity->bgTranslation?->description) ?: '-' }}</div></div>
                 <div class="grid grid-cols-1 gap-2 p-4 md:grid-cols-3"><div class="font-medium text-gray-700">Населено място</div><div class="md:col-span-2 text-black">{{ $entity->place?->name ?? '-' }}</div></div>
                 <div class="grid grid-cols-1 gap-2 p-4 md:grid-cols-3"><div class="font-medium text-gray-700">Собственик</div><div class="md:col-span-2 text-black">@if($entity->user){{ $entity->user->name }} ({{ $entity->user->email }})@else Системен / без собственик @endif</div></div>
 

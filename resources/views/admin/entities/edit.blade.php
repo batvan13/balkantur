@@ -96,6 +96,14 @@
             </div>
 
             <div class="space-y-1">
+                <label for="description" class="block text-sm font-medium text-black">Описание</label>
+                <textarea id="description" name="description" rows="5" class="w-full rounded border border-gray-400 px-3 py-2 text-sm text-black">{{ old('description', $entity->bgTranslation?->description) }}</textarea>
+                @error('description')
+                    <p class="text-sm text-black">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="space-y-1">
                 <label for="phone" class="block text-sm font-medium text-black">Телефон</label>
                 <input id="phone" name="phone" type="text" value="{{ old('phone', $entity->phone) }}" maxlength="255" class="w-full rounded border border-gray-400 px-3 py-2 text-sm text-black">
             </div>

@@ -97,6 +97,7 @@ class EntityController extends Controller
             'place_id' => ['required', 'integer', 'exists:places,id'],
             'name' => ['required', 'string', 'max:255'],
             'address' => ['nullable', 'string', 'max:255'],
+            'description' => ['nullable', 'string', 'max:65535'],
             'phone' => ['nullable', 'string', 'max:255'],
             'email' => ['nullable', 'email', 'max:255'],
             'website' => ['nullable', 'url', 'max:255'],
@@ -137,6 +138,12 @@ class EntityController extends Controller
         $entity->foodPlaceFeatures()->sync($foodPlaceFeatureIds);
         $entity->foodPlaceEntertainmentItems()->sync($foodPlaceEntertainmentItemIds);
 
+        $entity->syncBulgarianTranslation(
+            $validated['name'],
+            $validated['address'] ?? null,
+            $validated['description'] ?? null
+        );
+
         return redirect()
             ->route('owner.dashboard')
             ->with('success', 'Обектът е добавен успешно.');
@@ -151,6 +158,7 @@ class EntityController extends Controller
             'entitySubtype',
             'country',
             'place',
+            'bgTranslation',
             'features',
             'cuisines',
             'foodPlaceFeatures',
@@ -165,7 +173,7 @@ class EntityController extends Controller
     public function edit(Request $request, Entity $entity): View
     {
         $this->authorizeOwnerEntityAccess($request, $entity);
-        $entity->loadMissing(['entityType', 'place', 'features', 'cuisines', 'foodPlaceFeatures', 'foodPlaceEntertainmentItems']);
+        $entity->loadMissing(['entityType', 'place', 'bgTranslation', 'features', 'cuisines', 'foodPlaceFeatures', 'foodPlaceEntertainmentItems']);
 
         $selectedPlace = null;
         $oldPlaceId = old('place_id');
@@ -205,6 +213,7 @@ class EntityController extends Controller
             'place_id' => ['required', 'integer', 'exists:places,id'],
             'name' => ['required', 'string', 'max:255'],
             'address' => ['nullable', 'string', 'max:255'],
+            'description' => ['nullable', 'string', 'max:65535'],
             'phone' => ['nullable', 'string', 'max:255'],
             'email' => ['nullable', 'email', 'max:255'],
             'website' => ['nullable', 'url', 'max:255'],
@@ -241,6 +250,12 @@ class EntityController extends Controller
         $entity->cuisines()->sync($cuisineIds);
         $entity->foodPlaceFeatures()->sync($foodPlaceFeatureIds);
         $entity->foodPlaceEntertainmentItems()->sync($foodPlaceEntertainmentItemIds);
+
+        $entity->syncBulgarianTranslation(
+            $validated['name'],
+            $validated['address'] ?? null,
+            $validated['description'] ?? null
+        );
 
         return redirect()
             ->route('owner.entities.show', $entity)

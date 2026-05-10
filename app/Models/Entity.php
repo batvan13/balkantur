@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Entity extends Model
 {
@@ -83,5 +85,33 @@ class Entity extends Model
     {
         return $this->belongsToMany(FoodPlaceEntertainmentItem::class, 'entity_food_place_entertainment_item')
             ->withTimestamps();
+    }
+
+    public function translations(): HasMany
+    {
+        return $this->hasMany(EntityTranslation::class);
+    }
+
+    public function bgTranslation(): HasOne
+    {
+        return $this->hasOne(EntityTranslation::class)
+            ->where('locale', EntityTranslation::LOCALE_BG);
+    }
+
+    /**
+     * Phase 1: keep entities.name / entities.address in sync with the Bulgarian translation row.
+     */
+    public function syncBulgarianTranslation(string $name, ?string $address, ?string $description): void
+    {
+        $normalizedDescription = $description !== null && trim($description) !== '' ? trim($description) : null;
+
+        $this->translations()->updateOrCreate(
+            ['locale' => EntityTranslation::LOCALE_BG],
+            [
+                'name' => $name,
+                'address' => $address,
+                'description' => $normalizedDescription,
+            ]
+        );
     }
 }
