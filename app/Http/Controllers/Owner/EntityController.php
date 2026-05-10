@@ -146,7 +146,16 @@ class EntityController extends Controller
     {
         $this->authorizeOwnerEntityAccess($request, $entity);
 
-        $entity->loadMissing(['entityType', 'entitySubtype', 'country', 'place']);
+        $entity->loadMissing([
+            'entityType',
+            'entitySubtype',
+            'country',
+            'place',
+            'features',
+            'cuisines',
+            'foodPlaceFeatures',
+            'foodPlaceEntertainmentItems',
+        ]);
 
         return view('owner.entities.show', [
             'entity' => $entity,

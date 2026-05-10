@@ -32,6 +32,108 @@
                 <div class="grid grid-cols-1 gap-2 p-4 md:grid-cols-3"><div class="font-medium text-gray-700">Категоризация</div><div class="md:col-span-2 text-black">{{ $entity->classification ?: '-' }}</div></div>
                 <div class="grid grid-cols-1 gap-2 p-4 md:grid-cols-3"><div class="font-medium text-gray-700">Населено място</div><div class="md:col-span-2 text-black">{{ $entity->place?->name ?? '-' }}</div></div>
                 <div class="grid grid-cols-1 gap-2 p-4 md:grid-cols-3"><div class="font-medium text-gray-700">Собственик</div><div class="md:col-span-2 text-black">@if($entity->user){{ $entity->user->name }} ({{ $entity->user->email }})@else Системен / без собственик @endif</div></div>
+
+                @if (($entity->entityType?->code ?? '') === 'accommodation')
+                    <div class="grid grid-cols-1 gap-2 p-4 md:grid-cols-3">
+                        <div class="font-medium text-gray-700">Характеристики на настаняване</div>
+                        <div class="md:col-span-2 text-black">
+                            @if ($entity->features->isEmpty())
+                                -
+                            @else
+                                @foreach ($entity->features->groupBy('feature_group') as $groupCode => $items)
+                                    <div class="mb-2 last:mb-0">
+                                        <span class="font-medium text-gray-800">
+                                            @switch ($groupCode)
+                                                @case ('facility')
+                                                    Удобства
+                                                    @break
+                                                @case ('policy')
+                                                    Политики
+                                                    @break
+                                                @default
+                                                    {{ $groupCode }}
+                                            @endswitch
+                                            :
+                                        </span>
+                                        {{ $items->sortBy('name')->pluck('name')->implode(', ') }}
+                                    </div>
+                                @endforeach
+                            @endif
+                        </div>
+                    </div>
+                @endif
+
+                @if (($entity->entityType?->code ?? '') === 'food_place')
+                    <div class="grid grid-cols-1 gap-2 p-4 md:grid-cols-3">
+                        <div class="font-medium text-gray-700">Тип кухня</div>
+                        <div class="md:col-span-2 text-black">
+                            {{ $entity->cuisines->isEmpty() ? '-' : $entity->cuisines->sortBy('name')->pluck('name')->implode(', ') }}
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 gap-2 p-4 md:grid-cols-3">
+                        <div class="font-medium text-gray-700">Екстри / услуги</div>
+                        <div class="md:col-span-2 text-black">
+                            @if ($entity->foodPlaceFeatures->isEmpty())
+                                -
+                            @else
+                                @foreach ($entity->foodPlaceFeatures->groupBy('feature_group') as $groupCode => $items)
+                                    <div class="mb-2 last:mb-0">
+                                        <span class="font-medium text-gray-800">
+                                            @switch ($groupCode)
+                                                @case ('facility')
+                                                    Удобства
+                                                    @break
+                                                @case ('service')
+                                                    Услуги
+                                                    @break
+                                                @case ('entertainment')
+                                                    Развлечения
+                                                    @break
+                                                @case ('payment_access')
+                                                    Плащане и достъп
+                                                    @break
+                                                @default
+                                                    {{ $groupCode }}
+                                            @endswitch
+                                            :
+                                        </span>
+                                        {{ $items->sortBy('name')->pluck('name')->implode(', ') }}
+                                    </div>
+                                @endforeach
+                            @endif
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 gap-2 p-4 md:grid-cols-3">
+                        <div class="font-medium text-gray-700">Музика и забавление (метаданни)</div>
+                        <div class="md:col-span-2 text-black">
+                            @if ($entity->foodPlaceEntertainmentItems->isEmpty())
+                                -
+                            @else
+                                @foreach ($entity->foodPlaceEntertainmentItems->groupBy('metadata_group') as $groupCode => $items)
+                                    <div class="mb-2 last:mb-0">
+                                        <span class="font-medium text-gray-800">
+                                            @switch ($groupCode)
+                                                @case ('offering')
+                                                    Формати / предлагане
+                                                    @break
+                                                @case ('genre_balkan')
+                                                    Балканска и регионална музика
+                                                    @break
+                                                @case ('genre_international')
+                                                    Международни стилове
+                                                    @break
+                                                @default
+                                                    {{ $groupCode }}
+                                            @endswitch
+                                            :
+                                        </span>
+                                        {{ $items->sortBy('name')->pluck('name')->implode(', ') }}
+                                    </div>
+                                @endforeach
+                            @endif
+                        </div>
+                    </div>
+                @endif
             </div>
         </div>
     </div>
