@@ -129,7 +129,11 @@
 
             @if ($entityType->code === 'accommodation')
                 @php
-                    $selectedFeatureIds = collect(old('feature_ids', $entity->features->pluck('id')->all()))->map(fn ($id) => (string) $id)->all();
+                    $selectedFeatureIds = collect(
+                        $errors->any()
+                            ? (array) old('feature_ids', [])
+                            : old('feature_ids', $entity->features->pluck('id')->all())
+                    )->map(fn ($id) => (string) $id)->all();
                     $featureGroups = $entityFeatures->groupBy('feature_group');
                 @endphp
                 <div class="space-y-3 rounded-lg border border-gray-300 p-4">
@@ -164,7 +168,11 @@
 
             @if ($entityType->code === 'food_place')
                 @php
-                    $selectedCuisineIds = collect(old('cuisine_ids', $entity->cuisines->pluck('id')->all()))->map(fn ($id) => (string) $id)->all();
+                    $selectedCuisineIds = collect(
+                        $errors->any()
+                            ? (array) old('cuisine_ids', [])
+                            : old('cuisine_ids', $entity->cuisines->pluck('id')->all())
+                    )->map(fn ($id) => (string) $id)->all();
                 @endphp
                 <div class="space-y-3 rounded-lg border border-gray-300 p-4">
                     <h3 class="text-sm font-semibold text-black">Тип кухня</h3>
@@ -189,7 +197,11 @@
 
             @if ($entityType->code === 'food_place')
                 @php
-                    $selectedFpFeatureIds = collect(old('food_place_feature_ids', $entity->foodPlaceFeatures->pluck('id')->all()))->map(fn ($id) => (string) $id)->all();
+                    $selectedFpFeatureIds = collect(
+                        $errors->any()
+                            ? (array) old('food_place_feature_ids', [])
+                            : old('food_place_feature_ids', $entity->foodPlaceFeatures->pluck('id')->all())
+                    )->map(fn ($id) => (string) $id)->all();
                     $fpFeatureGroups = $foodPlaceFeatureOptions->groupBy('feature_group');
                 @endphp
                 <div class="space-y-3 rounded-lg border border-gray-300 p-4">
@@ -227,7 +239,11 @@
 
             @if ($entityType->code === 'food_place')
                 @php
-                    $selectedEntIds = collect(old('food_place_entertainment_item_ids', $entity->foodPlaceEntertainmentItems->pluck('id')->all()))->map(fn ($id) => (string) $id)->all();
+                    $selectedEntIds = collect(
+                        $errors->any()
+                            ? (array) old('food_place_entertainment_item_ids', [])
+                            : old('food_place_entertainment_item_ids', $entity->foodPlaceEntertainmentItems->pluck('id')->all())
+                    )->map(fn ($id) => (string) $id)->all();
                     $entGroups = $foodPlaceEntertainmentOptions->groupBy('metadata_group');
                 @endphp
                 <div class="space-y-3 rounded-lg border border-gray-300 p-4">
