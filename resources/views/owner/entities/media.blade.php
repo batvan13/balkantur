@@ -68,53 +68,88 @@
             </div>
         </div>
 
-        <div class="rounded-lg border border-gray-300 p-4">
-            <h2 class="mb-3 text-sm font-semibold text-black">Текущи медии</h2>
+        @php
+            $mediaImages = $entity->entityMedia->where('type', \App\Models\EntityMedia::TYPE_IMAGE)->values();
+            $mediaVideos = $entity->entityMedia->where('type', \App\Models\EntityMedia::TYPE_VIDEO)->values();
+        @endphp
+
+        <div class="rounded-lg border border-gray-300 p-4 space-y-8">
+            <h2 class="text-sm font-semibold text-black">Текущи медии</h2>
+
             @if ($entity->entityMedia->isEmpty())
-                <p class="text-sm text-black">Няма качени медии.</p>
+                <p class="text-sm text-black">Няма качени снимки или видеа.</p>
             @else
-                <div class="divide-y divide-gray-200">
-                    @foreach ($entity->entityMedia as $m)
-                        <div class="flex flex-wrap items-start gap-4 py-4">
-                            <div class="text-xs text-gray-600">
-                                #{{ $m->sort_order }}
-                                @if ($m->type === \App\Models\EntityMedia::TYPE_IMAGE)
-                                    · снимка
-                                    @if ($m->is_cover)
-                                        · <span class="font-medium text-black">главна</span>
-                                    @endif
-                                @else
-                                    · видео линк
-                                @endif
-                            </div>
-                            <div class="flex-1 min-w-[12rem]">
-                                @if ($m->type === \App\Models\EntityMedia::TYPE_IMAGE && $m->publicUrl())
-                                    <img src="{{ $m->publicUrl() }}" alt="" class="max-h-28 rounded border border-gray-300">
-                                @elseif ($m->type === \App\Models\EntityMedia::TYPE_VIDEO && $m->url)
-                                    <a href="{{ $m->url }}" target="_blank" rel="noopener noreferrer" class="break-all text-sm underline">{{ $m->url }}</a>
-                                @else
-                                    <span class="text-sm text-black">—</span>
-                                @endif
-                            </div>
-                            <div class="flex flex-wrap gap-2">
-                                @if ($m->type === \App\Models\EntityMedia::TYPE_IMAGE && ! $m->is_cover)
-                                    <form method="POST" action="{{ route('owner.entities.media.cover', [$entity, $m]) }}">
+                <div class="space-y-3">
+                    <h3 class="text-xs font-semibold uppercase tracking-wide text-gray-700">Снимки</h3>
+                    @if ($mediaImages->isEmpty())
+                        <p class="text-sm text-black">Няма качени снимки.</p>
+                    @else
+                        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                            @foreach ($mediaImages as $m)
+                                <div class="flex flex-col rounded border border-gray-300 bg-white {{ $m->is_cover ? 'ring-2 ring-gray-600' : '' }}">
+                                    <div class="relative aspect-[4/3] w-full overflow-hidden bg-gray-100">
+                                        @if ($m->publicUrl())
+                                            <img src="{{ $m->publicUrl() }}" alt="" class="h-full w-full object-cover">
+                                        @else
+                                            <div class="flex h-full items-center justify-center text-xs text-gray-500">Няма преглед</div>
+                                        @endif
+                                        @if ($m->is_cover)
+                                            <span class="absolute left-2 top-2 rounded bg-black px-2 py-0.5 text-xs font-medium text-white">Главна снимка</span>
+                                        @endif
+                                    </div>
+                                    <div class="flex flex-col gap-2 border-t border-gray-200 p-3">
+                                        <p class="text-xs text-gray-600">Ред #{{ $m->sort_order }}</p>
+                                        <div class="flex flex-col gap-2">
+                                            @if (! $m->is_cover)
+                                                <form method="POST" action="{{ route('owner.entities.media.cover', [$entity, $m]) }}">
+                                                    @csrf
+                                                    <button type="submit" class="w-full rounded border border-gray-400 px-2 py-1.5 text-xs text-black hover:bg-gray-100">
+                                                        Направи главна
+                                                    </button>
+                                                </form>
+                                            @endif
+                                            <form method="POST" action="{{ route('owner.entities.media.destroy', [$entity, $m]) }}" onsubmit="return confirm('Изтриване на тази снимка?');">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="w-full rounded border border-gray-400 px-2 py-1.5 text-xs text-black hover:bg-gray-100">
+                                                    Изтрий
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    @endif
+                </div>
+
+                <div class="space-y-3 border-t border-gray-200 pt-6">
+                    <h3 class="text-xs font-semibold uppercase tracking-wide text-gray-700">Видео линкове</h3>
+                    @if ($mediaVideos->isEmpty())
+                        <p class="text-sm text-black">Няма добавени видео линкове.</p>
+                    @else
+                        <ul class="divide-y divide-gray-200 rounded border border-gray-300">
+                            @foreach ($mediaVideos as $m)
+                                <li class="flex flex-wrap items-start gap-3 p-3">
+                                    <div class="min-w-0 flex-1">
+                                        <p class="mb-1 text-xs text-gray-600">Видео · ред #{{ $m->sort_order }}</p>
+                                        @if ($m->url)
+                                            <a href="{{ $m->url }}" target="_blank" rel="noopener noreferrer" class="break-all text-sm text-black underline">{{ $m->url }}</a>
+                                        @else
+                                            <span class="text-sm text-black">—</span>
+                                        @endif
+                                    </div>
+                                    <form method="POST" action="{{ route('owner.entities.media.destroy', [$entity, $m]) }}" onsubmit="return confirm('Изтриване на този видео линк?');" class="shrink-0">
                                         @csrf
-                                        <button type="submit" class="rounded border border-gray-400 px-2 py-1 text-xs text-black hover:bg-gray-100">
-                                            Главна снимка
+                                        @method('DELETE')
+                                        <button type="submit" class="rounded border border-gray-400 px-2 py-1.5 text-xs text-black hover:bg-gray-100">
+                                            Изтрий
                                         </button>
                                     </form>
-                                @endif
-                                <form method="POST" action="{{ route('owner.entities.media.destroy', [$entity, $m]) }}" onsubmit="return confirm('Премахване на този запис?');">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="rounded border border-gray-400 px-2 py-1 text-xs text-black hover:bg-gray-100">
-                                        Изтрий
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                    @endforeach
+                                </li>
+                            @endforeach
+                        </ul>
+                    @endif
                 </div>
             @endif
         </div>
